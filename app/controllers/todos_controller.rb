@@ -52,17 +52,14 @@ class TodosController < ApplicationController
 
   # Mark as complete
   def completed
-    # @todo.completed
-    # @todo.date_completed = Time.new.strftime("%d %b %Y %H:%M")
-    # if @todo.save
-    #   redirect_to @todo, notice: 'Todo has been marked as complete.'
-    # else
-    #   render :index
-    # end
     @todo = Todo.find(params[:id])
-    @todo.completed
-    @todo.save
-    redirect_to todos_path
+    @todo.completed = true
+    @todo.date_completed = Time.new.strftime("%d %b %Y %H:%M")
+    if @todo.save
+      redirect_to todos_url, notice: 'Todo has been marked as complete.'
+    else
+      render :new
+    end
   end
 
   private

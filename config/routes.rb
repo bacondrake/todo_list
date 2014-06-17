@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   resources :todos
   
-  # match 'todos/:id' => 'todos#completed'
-  post '/todos/:id(.:format)' => 'todos#completed'
-
+  post 'todos/:id' => 'todos#completed'
+  
   devise_for :users
   root 'pages#home'
   get 'about' => 'pages#about'

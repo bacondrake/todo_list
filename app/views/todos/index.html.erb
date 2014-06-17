@@ -19,13 +19,16 @@
 
       <tbody>
         <% @todos.each do |todo| %>
-          <tr>
-            
+          <% if todo.completed %>
+            <tr style="color:#B6B6B6; text-decoration:line-through;">
+          <% else %>
+            <tr>  
+          <% end %>
             <td><%= todo.content %></td>
             <td><%= todo.section %></td>
             <td><%= todo.date_created %></td>
             <td><%= todo.date_completed %></td>
-
+          
             <td><%= link_to 'Show', todo, class: "btn btn-primary" %></td>
             <td><%= link_to 'Edit', edit_todo_path(todo), class: "btn btn-warning" %></td>
             <td><%= link_to 'Complete', todo, method: :completed, data: { confirm: 'Are you sure?'}, class: "btn btn-default"%></td>
