@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   resources :todos
+  
+  # match 'todos/:id' => 'todos#completed'
+  post '/todos/:id(.:format)' => 'todos#completed'
 
   devise_for :users
   root 'pages#home'
   get 'about' => 'pages#about'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

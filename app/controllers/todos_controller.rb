@@ -26,29 +26,20 @@ class TodosController < ApplicationController
   def create
     @todo = Todo.new(todo_params)
     @todo.date_created = Time.new.strftime("%d %b %Y %H:%M")
-
-    respond_to do |format|
-      if @todo.save
-        format.html { redirect_to @todo, notice: 'Todo was successfully created.' }
-        format.json { render :show, status: :created, location: @todo }
-      else
-        format.html { render :new }
-        format.json { render json: @todo.errors, status: :unprocessable_entity }
-      end
+    if @todo.save
+       redirect_to @todo, notice: 'Todo was successfully created.'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /todos/1
   # PATCH/PUT /todos/1.json
   def update
-    respond_to do |format|
-      if @todo.update(todo_params)
-        format.html { redirect_to @todo, notice: 'Todo was successfully updated.' }
-        format.json { render :show, status: :ok, location: @todo }
-      else
-        format.html { render :edit }
-        format.json { render json: @todo.errors, status: :unprocessable_entity }
-      end
+    if @todo.update(todo_params)
+      redirect_to @todo, notice: 'Todo was successfully updated.'
+    else
+      render :edit 
     end
   end
 
@@ -56,25 +47,22 @@ class TodosController < ApplicationController
   # DELETE /todos/1.json
   def destroy
     @todo.destroy
-    respond_to do |format|
-      format.html { redirect_to todos_url, notice: 'Todo was successfully deleted.' }
-      format.json { head :no_content }
-    end
+    redirect_to todos_url, notice: 'Todo was successfully deleted.'
   end
 
+  # Mark as complete
   def completed
+    # @todo.completed
+    # @todo.date_completed = Time.new.strftime("%d %b %Y %H:%M")
+    # if @todo.save
+    #   redirect_to @todo, notice: 'Todo has been marked as complete.'
+    # else
+    #   render :index
+    # end
+    @todo = Todo.find(params[:id])
     @todo.completed
-    @todo.date_completed = Time.new.strftime("%d %b %Y %H:%M")
-
-    respond_to do |format|
-      if @todo.save
-        format.html { redirect_to @todo, notice: 'Todo has been marked as complete.' }
-        format.json { render :show, status: :completed, location: @todo }
-      else
-        format.html { render :index }
-        format.json { render json: @todo.errors, status: :unprocessable_entity }
-      end
-    end
+    @todo.save
+    redirect_to todos_path
   end
 
   private
