@@ -4,7 +4,8 @@ class TodosController < ApplicationController
   # GET /todos
   # GET /todos.json
   def index
-    @todos = Todo.all
+    # @todos = Todo.all
+    @todos = Todo.order('completed ASC, LOWER(content)')
   end
 
   # GET /todos/1
@@ -26,7 +27,9 @@ class TodosController < ApplicationController
   def create
     @todo = Todo.new(todo_params)
     @todo.date_created = Time.new.strftime("%d %b %Y %H:%M")
-    if @todo.save
+    if @todo.content.blank?
+      redirect_to new_todo_path, notice: "Content can't be blank"
+    elsif @todo.save
        redirect_to @todo, notice: 'Todo was successfully created.'
     else
       render :new
