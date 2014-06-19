@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-  before_action :set_todo, only: [:show, :edit, :update, :destroy, :completed]
+  before_action :set_todo, only: [:show, :edit, :update, :destroy]
 
   # GET /todos
   # GET /todos.json
@@ -28,9 +28,9 @@ class TodosController < ApplicationController
     @todo = Todo.new(todo_params)
     @todo.date_created = Time.new.strftime("%d %b %Y %H:%M")
     if @todo.content.blank?
-      redirect_to new_todo_path, notice: "Content can't be blank"
+      redirect_to new_todo_path, notice: "The content field cannot be blank"
     elsif @todo.save
-       redirect_to @todo, notice: 'Todo was successfully created.'
+       redirect_to todos_url, notice: 'Todo was successfully created.'
     else
       render :new
     end
@@ -49,8 +49,13 @@ class TodosController < ApplicationController
   # DELETE /todos/1
   # DELETE /todos/1.json
   def destroy
-    @todo.destroy
-    redirect_to todos_url, notice: 'Todo was successfully deleted.'
+    if @todo.completed
+      @todo.destroy
+      redirect_to todos_url, notice: 'Todo has been cleared.'
+    else
+      @todo.destroy
+      redirect_to todos_url, notice: 'Todo was successfully deleted.'
+    end
   end
 
   # Mark as complete
@@ -65,6 +70,25 @@ class TodosController < ApplicationController
     end
   end
 
+  # Clear all completed
+  def clear_all
+    @clear = Todo.all
+    @clear.each do |todo|
+      if todo.completed
+         todo.delete
+      end      
+    end
+    redirect_to todos_url, notice: 'Completed todos have been cleared.'
+  end
+
+  def delete_all
+    @delete_all = Todo.all
+    @delete_all.each do |todo|
+      todo.delete
+    end
+    redirect_to todos_url, notice: 'All todos have been deleted'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_todo
@@ -73,6 +97,6 @@ class TodosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def todo_params
-      params.require(:todo).permit(:content, :section, :date_created, :date_completed)
+      params.require(:todo).permit(:content, :section, :date_created, :date_completed, :completed)
     end
 end

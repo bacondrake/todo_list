@@ -12,6 +12,7 @@ Project to contain:
 * Todo completion option, formatting the todo with a strikethrough and greyed out - as well as displaying the date and time completed. **(Done)**
 * Sort-by (content, section, date created/completed) **(Done statically, no user input yet)**
 * Clear completed todos that does not alter incomplete todos.
+* Pagination for long lists.
 
 Need to do:
 * Have completed todos marked as complete - greyed out with a strikethrough, show, edit, complete, delete buttons removed and a clear button to be shown.

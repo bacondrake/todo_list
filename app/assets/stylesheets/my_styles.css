@@ -1,3 +1,10 @@
+/* miscellaneous styles */
 .center {
   text-align: center;
+}
+
+/* styles for completed todos */
+.completed {
+  color: #B6B6B6; /* light grey */
+  text-decoration: line-through;
 }
