@@ -52,7 +52,6 @@
     <%= link_to 'New Todo', new_todo_path, class: "btn btn-primary" %>
     <div style="float:right">
       <%= link_to 'Clear all', @todo, method: :delete, data: { confirm: 'This will clear all completed todos, are you sure?'}, class: "btn btn-default" %>
-      <%= link_to 'Delete all', @todo, method: :delete, data: { confirm: "This will delete all todos, are you sure?"}, class: "btn btn-danger" %>
     </div>
   </div>
 </div>

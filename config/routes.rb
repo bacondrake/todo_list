@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :todos
+  
   post 'todos/:id' => 'todos#completed'
-  delete 'todos' => 'todos#clear_all'  
+  delete 'todos' => 'todos#clear_all' 
+  # delete 'todos' => 'todos#delete_all' 
   
   devise_for :users
   root 'pages#home'

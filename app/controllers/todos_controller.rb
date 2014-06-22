@@ -81,13 +81,14 @@ class TodosController < ApplicationController
     redirect_to todos_url, notice: 'Completed todos have been cleared.'
   end
 
-  def delete_all
-    @delete_all = Todo.all
-    @delete_all.each do |todo|
-      todo.delete
-    end
-    redirect_to todos_url, notice: 'All todos have been deleted'
-  end
+  # Delete all
+  # def delete_all
+  #   @delete_all = Todo.all
+  #   @delete_all.each do |todo|
+  #     todo.delete
+  #   end
+  #   redirect_to todos_url, notice: 'All todos have been deleted'
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
