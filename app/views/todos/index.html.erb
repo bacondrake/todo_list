@@ -47,6 +47,9 @@
   </div>
 
   <br/>
+  <div class="center">
+    <%= will_paginate @todos, renderer: BootstrapPagination::Rails %>
+  </div>
 
   <div class="panel-footer">
     <%= link_to 'New Todo', new_todo_path, class: "btn btn-primary" %>

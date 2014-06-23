@@ -27,6 +27,11 @@ gem 'bootstrap-sass'
 # User controls
 gem 'devise'
 
+# Bootstrap pagination
+gem 'will_paginate-bootstrap'
+gem 'will_paginate', '~> 3.0'
+gem "twitter-bootstrap-rails"
+
 group :development, :test do
      gem 'sqlite3'
 end

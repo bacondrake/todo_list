@@ -6,6 +6,7 @@ class TodosController < ApplicationController
   def index
     # @todos = Todo.all
     @todos = Todo.order('completed ASC, LOWER(content)')
+    @todos = @todos.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /todos/1
