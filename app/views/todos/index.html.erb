@@ -24,22 +24,24 @@
           <% else %>
             <tr>  
           <% end %>
+          
+          <% if todo.user == current_user %>
             <td><%= todo.content %></td>
             <td><%= todo.section %></td>
             <td><%= todo.date_created %></td>
             <td><%= todo.date_completed %></td>
           
 
-          <% if todo.completed %>
-            <td colspan="2">
-            <td colspan="2"><%= link_to 'Clear', todo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %></td>
-          <% else %>
-            <td><%= link_to 'Show', todo, class: "btn btn-primary" %></td>
-            <td><%= link_to 'Edit', edit_todo_path(todo), class: "btn btn-warning" %></td>
-            <td><%= link_to 'Complete', todo, method: :completed, data: { confirm: 'Are you sure?'}, class: "btn btn-default"%></td>
-            <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
-          </tr>
-          
+            <% if todo.completed %>
+              <td colspan="2">
+              <td colspan="2"><%= link_to 'Clear', todo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %></td>
+            <% else %>
+              <td><%= link_to 'Show', todo, class: "btn btn-primary" %></td>
+              <td><%= link_to 'Edit', edit_todo_path(todo), class: "btn btn-warning" %></td>
+              <td><%= link_to 'Complete', todo, method: :completed, data: { confirm: 'Are you sure?'}, class: "btn btn-default"%></td>
+              <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+            </tr>
+            <% end %>
           <% end %>  
         <% end %>  
       </tbody>
