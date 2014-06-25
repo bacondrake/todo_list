@@ -1,5 +1,6 @@
 class TodosController < ApplicationController
   before_action :authenticate_user!
+  before_action :correct_user, only: [:show, :edit, :update, :destroy]
   before_action :set_todo, only: [:show, :edit, :update, :destroy]
 
   # GET /todos
@@ -13,6 +14,9 @@ class TodosController < ApplicationController
   # GET /todos/1
   # GET /todos/1.json
   def show
+    if @todo.user == !current_user
+      redirect_to todos_url, notice: 'That todo does not belong to you.'
+    end
   end
 
   # GET /todos/new
@@ -102,7 +106,7 @@ class TodosController < ApplicationController
 
     def correct_user
       @todo = current_user.todos.find_by(id: params[:id])
-      redirect_to todos_path, notice: "This is not your todo" if todo.nil?
+      redirect_to todos_path, notice: "You are not authorised to view this todo as you are not its owner" if @todo.nil?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

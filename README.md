@@ -12,7 +12,9 @@ Project to contain:
 * Todo completion option, formatting the todo with a strikethrough and greyed out - as well as displaying the date and time completed. **(Done)**
 * Clear completed todos that does not alter incomplete todos. **(Done)**
 * Pagination for long lists. **(Done for 10 todos)**
-* Delete all todos, complete or incomplete.
+* Fix pagination issue where long lists do not reshuffle correctly when a todo is marked as complete.
+* Fix pagination issue where pagination is applying to all todos rather than just the current user's (The todos do not show but the pagination buttons are present even if a user has less than 10 todos).
+* Delete all todos, complete or incomplete. **(Done for complete, not incomplete)
 * Sort-by (content, section, date created/completed) **(Done statically, no user input yet)**
 * User to send completed todos into a CSV for reporting.
 
