@@ -14,7 +14,7 @@ Project to contain:
 * Pagination for long lists. **(Done for 10 todos)**
 * Fix pagination issue where long lists do not reshuffle correctly when a todo is marked as complete.
 * Fix pagination issue where pagination is applying to all todos rather than just the current user's (The todos do not show but the pagination buttons are present even if a user has less than 10 todos).
-* Delete all todos, complete or incomplete. **(Done for complete, not incomplete)
+* Delete all todos, complete or incomplete. **(Done for complete, not incomplete)**
 * Sort-by (content, section, date created/completed) **(Done statically, no user input yet)**
 * User to send completed todos into a CSV for reporting.
 
