@@ -8,7 +8,7 @@ class TodosController < ApplicationController
   def index
     # @todos = Todo.all
     @todos = Todo.order('completed ASC, LOWER(content)')
-    @todos = @todos.paginate(:page => params[:page], :per_page => 10)
+    #@todos = @todos.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /todos/1
@@ -97,6 +97,18 @@ class TodosController < ApplicationController
   #   end
   #   redirect_to todos_url, notice: 'All todos have been deleted'
   # end
+
+  def report
+    report = Array.new
+    @todos.each do |todo|
+      if todo.completed
+        report << todo
+        CSV.open('todos_report.csv', 'wb') do |csv|
+          csv << report
+        end
+      end
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
