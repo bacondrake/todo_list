@@ -6,14 +6,15 @@ class TodosController < ApplicationController
   # GET /todos
   # GET /todos.json
   def index
-    # @todos = Todo.all
-    @todos = Todo.order('completed ASC, LOWER(content)')
-    #@todos = @todos.paginate(:page => params[:page], :per_page => 10)
+    # Paginates current_users todos, 
+    # Puts into alphabetical order by content, then by whether it is completed or not
+    @todos = current_user.todos.paginate(:page => params[:page], :per_page => 10).order('completed ASC, LOWER(content)')
   end
 
   # GET /todos/1
   # GET /todos/1.json
   def show
+    # Only shows todos if they belong to the current user.
     if @todo.user == !current_user
       redirect_to todos_url, notice: 'That todo does not belong to you.'
     end
