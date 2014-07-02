@@ -12,11 +12,11 @@ Project to contain:
 * Todo completion option, formatting the todo with a strikethrough and greyed out - as well as displaying the date and time completed. **(Done)**
 * Clear completed todos that does not alter incomplete todos. **(Done)**
 * Pagination for long lists. **(Done for 10 todos)**
-* Fix pagination issue where long lists do not reshuffle correctly when a todo is marked as complete.
-* Fix pagination issue where pagination is applying to all todos rather than just the current user's (The todos do not show but the pagination buttons are present even if a user has less than 10 todos).
 * Delete all todos, complete or incomplete. **(Done for complete, not incomplete)**
 * Sort-by (content, section, date created/completed) **(Done statically, no user input yet)**
 * User to send completed todos into a CSV for reporting.
+* Update Devise code to enable users to retrieve a lost password and receive email notifications for password retrieval.
+* Update home page to be more intuitive with directing users to the todos.
 
 The project was originally created to manage my daily tasks at work that required many small tasks across several different areas, some of which would otherwise be forgotten and neglected if not listed in a single manageable location.
 
