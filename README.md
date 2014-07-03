@@ -16,7 +16,7 @@ Project to contain:
 * Sort-by (content, section, date created/completed) **(Done statically, no user input yet)**
 * User to send completed todos into a CSV for reporting.
 * Update Devise code to enable users to retrieve a lost password and receive email notifications for password retrieval.
-* Update home page to be more intuitive with directing users to the todos.
+* Update home page to be more intuitive with directing users to the todos. **(Done)**
 
 The project was originally created to manage my daily tasks at work that required many small tasks across several different areas, some of which would otherwise be forgotten and neglected if not listed in a single manageable location.
 
