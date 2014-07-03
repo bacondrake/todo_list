@@ -33,13 +33,12 @@
           
 
             <% if todo.completed %>
-              <td colspan="2">
+              <td>
               <td colspan="2"><%= link_to 'Clear', todo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %></td>
             <% else %>
-              <td><%= link_to 'Show', todo, class: "btn btn-primary" %></td>
-              <td><%= link_to 'Edit', edit_todo_path(todo), class: "btn btn-warning" %></td>
+              <td><%= link_to 'Edit', edit_todo_path(todo), class: "btn btn-primary" %></td>
               <td><%= link_to 'Complete', todo, method: :completed, data: { confirm: 'Are you sure?'}, class: "btn btn-default"%></td>
-              <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+              <td><%= link_to 'Delete', todo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
             </tr>
             <% end %>
           <% end %>  
@@ -59,7 +58,7 @@
   <div class="panel-footer">
     <%= link_to 'New Todo', new_todo_path, class: "btn btn-primary" %>
     
-    <%= link_to 'Clear all', @todo, method: :delete, data: { confirm: 'This will clear all completed todos, are you sure?'}, class: "btn btn-default" %>
+    <%= link_to 'Clear all completed', @todo, method: :delete, data: { confirm: 'This will clear all completed todos, are you sure?'}, class: "btn btn-default" %>
     
     <!-- div style="float:right">
       < link_to 'Create CSV report', @todo, method: :report, data: { confirm: 'This will create a report of completed todos.'}, class: "btn btn-info" >
