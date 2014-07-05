@@ -82,5 +82,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # set to actual host (e.g. todo_list.herokuapp.com)
+  # Need to run heroku run rake db:migrate or there may be unexplained errors
   config.action_mailer.default_url_options = { host: 'allmytasks.herokuapp.com' }
 end

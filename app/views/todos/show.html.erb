@@ -1,5 +1,14 @@
-<div class="panel panel-default">
+<!-- div to allow for update/error notice -->
+<div class="panel panel-default" style="display:none;">
   <p id="notice"><%= notice %></p>
+</div>
+<!-- div for the rest of the page -->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title">
+      <h1>Task number <%= @todo[:id] %></h1>
+    </div>
+  </div>
   <div class="panel-body">
     <div class="form-group">
       <p>

@@ -1,7 +1,7 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <div class="panel-title">
-      <h1>Listing todos</h1>
+      <h1>Listing tasks</h1>
     </div>
   </div>
 
@@ -56,9 +56,9 @@
   
 
   <div class="panel-footer">
-    <%= link_to 'New Todo', new_todo_path, class: "btn btn-primary" %>
+    <%= link_to 'New task', new_todo_path, class: "btn btn-primary" %>
     
-    <%= link_to 'Clear all completed', @todo, method: :delete, data: { confirm: 'This will clear all completed todos, are you sure?'}, class: "btn btn-default" %>
+    <%= link_to 'Clear all completed', @todo, method: :delete, data: { confirm: 'This will clear all completed tasks, are you sure?'}, class: "btn btn-default" %>
     
     <!-- div style="float:right">
       < link_to 'Create CSV report', @todo, method: :report, data: { confirm: 'This will create a report of completed todos.'}, class: "btn btn-info" >
