@@ -4,6 +4,10 @@ A Ruby on Rails project to control todos with various areas of focus.
 
 Project to contain:
 
+* User to send completed todos into a CSV for reporting.
+* Update Devise code to enable users to retrieve a lost password and receive email notifications for password retrieval.
+* Manual user sort-by (content, section, date created/completed)
+* Localise time for user depending on where they are (currently universally set to GMT)
 * List of todos **(Done)**
 * Todo section (area of focus) **(Done)**
 * Create, show, update/edit and delete of todos **(Done)**
@@ -13,10 +17,8 @@ Project to contain:
 * Clear completed todos that does not alter incomplete todos. **(Done)**
 * Pagination for long lists. **(Done for 10 todos)**
 * Delete all todos, complete or incomplete. **(Done for complete, not incomplete)**
-* Sort-by (content, section, date created/completed) **(Done statically, no user input yet)**
 * Update home page to be more intuitive with directing users to the todos. **(Done)**
-* User to send completed todos into a CSV for reporting.
-* Update Devise code to enable users to retrieve a lost password and receive email notifications for password retrieval.
+
 
 The project was originally created to manage my daily tasks at work that required many small tasks across several different areas, some of which would otherwise be forgotten and neglected if not listed in a single manageable location.
 
