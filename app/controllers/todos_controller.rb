@@ -6,7 +6,7 @@ class TodosController < ApplicationController
   def index
     # Paginates current_users todos, 
     # Puts into alphabetical order by content, then by whether it is completed or not
-    @todos = current_user.todos.paginate(:page => params[:page], :per_page => 10).order('completed ASC, LOWER(content)')
+    @todos = current_user.todos.paginate(:page => params[:page], :per_page => 10).order('completed DESC, LOWER(content)')
   end
 
   def show
