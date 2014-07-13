@@ -60,8 +60,9 @@
     
     <%= link_to 'Clear all completed', @todo, method: :delete, data: { confirm: 'This will clear all completed tasks, are you sure?'}, class: "btn btn-default" %>
     
-    <!-- div style="float:right">
-      < link_to 'Create CSV report', @todo, method: :report, data: { confirm: 'This will create a report of completed todos.'}, class: "btn btn-info" >
-    </div -->
+    <!-- http://railscasts.com/episodes/362-exporting-csv-and-excel for how this was done -->
+    <div style="float:right">
+      <%= link_to 'Create CSV report', todos_path(format: "csv"), class: "btn btn-info" %>
+    </div>
   </div>
 </div>

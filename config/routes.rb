@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   
   post 'todos/:id' => 'todos#completed'
   delete 'todos' => 'todos#clear_all' 
-  # delete 'todos' => 'todos#delete_all' 
-  post 'todos/:id' => 'todos#report'
   
   devise_for :users
   root 'pages#home'

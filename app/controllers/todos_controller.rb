@@ -7,6 +7,10 @@ class TodosController < ApplicationController
     # Paginates current_users todos, 
     # Puts into alphabetical order by content, then by whether it is completed or not
     @todos = current_user.todos.paginate(:page => params[:page], :per_page => 10).order('completed DESC, LOWER(content)')
+    respond_to do |format|
+      format.html
+      format.csv { send_data @todos.to_csv }
+    end
   end
 
   def show
