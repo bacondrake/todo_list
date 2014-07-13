@@ -4,7 +4,7 @@ A Ruby on Rails project to control todos with various areas of focus.
 
 Project to contain:
 
-* User to send completed todos into a CSV for reporting.
+* User to send completed todos into a CSV for reporting. **(Done)**
 * Update Devise code to enable users to retrieve a lost password and receive email notifications for password retrieval.
 * Manual user sort-by (content, section, date created/completed)
 * Localise time for user depending on where they are (currently universally set to GMT)

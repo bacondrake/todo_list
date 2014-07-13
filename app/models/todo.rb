@@ -1,6 +1,7 @@
 class Todo < ActiveRecord::Base
   belongs_to :user
   validates :content, presence: true
+  acts_as_list scope: :todos
 
   def self.to_csv
     CSV.generate do |csv|
