@@ -101,7 +101,7 @@ class TodosController < ApplicationController
     end
 
     def sort_column
-      Todo.column_names.include?(params[:sort]) ? params[:sort] : "completed, LOWER(content)"
+      Todo.column_names.include?(params[:sort]) ? params[:sort] : "completed desc, LOWER(content)"
     end
 
     def sort_direction
