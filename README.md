@@ -2,6 +2,11 @@
 
 A Ruby on Rails project to control todos with various areas of focus.
 
+You can view the project at [http://allmytasks.herokuapp.com](http://allmytasks.herokuapp.com), with the following example/test login details:
+
+email: example@email.com
+password: foobarbaz
+
 Project to contain:
 
 * Localise time for user depending on where they are (currently universally set to GMT)
