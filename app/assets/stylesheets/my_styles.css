@@ -9,6 +9,21 @@
   text-decoration: line-through;
 }
 
-a {
+/* makes the sort links on the index page black, but all others standard blue */
+.link_text a {
   color:#000;
+}
+
+/* makes the text area/fields in _form (new/edit) 450px in length (they are otherwise too small) */
+.long {
+  width: 450px;
+}
+
+/* makes the content field maximum size 300px so other fields aren't squashed */
+#content_length {
+  max-width: 300px;
+}
+
+#section_length {
+  max-width: 150px;
 }

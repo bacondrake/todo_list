@@ -8,7 +8,7 @@
   <div class="panel-body">
     <table class="table">
       <thead>
-        <tr>
+        <tr class="link_text">
           <th><%= sortable "content" %><span class="caret"></span></th>
           <th><%= sortable "section" %><span class="caret"></span></th>
           <th><%= sortable "date_created" %><span class=" caret"></span></th>
@@ -26,8 +26,8 @@
           <% end %>
           
           <% if todo.user == current_user %>
-            <td><%= todo.content %></td>
-            <td><%= todo.section %></td>
+            <td id="content_length"><%= todo.content %></td>
+            <td id="section_length"><%= todo.section %></td>
             <td><%= todo.date_created %></td>
             <td><%= todo.date_completed %></td>
           
