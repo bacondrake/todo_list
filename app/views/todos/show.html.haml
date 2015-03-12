@@ -1,0 +1,29 @@
+/ div to allow for update/error notice
+.panel.panel-default{:style => "display:none;"}
+  %p#notice= notice
+/ div for the rest of the page
+.panel.panel-default
+  .panel-heading
+    .panel-title
+      %h1 Task details
+  .panel-body
+    .form-group
+      %p
+        %strong Content:
+        = @todo.content
+    .form-group
+      %p
+        %strong Section:
+        = @todo.section
+    .form-group
+      %p
+        %strong Date created:
+        = @todo.date_created
+    .form-group
+      %p
+        %strong Date completed:
+        = @todo.date_completed
+  .panel-footer
+    = link_to 'Edit', edit_todo_path(@todo)
+    |
+    \#{link_to 'Back', todos_path}

@@ -1,0 +1,19 @@
+= form_for(@todo) do |f|
+  - if @todo.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@todo.errors.count, "error")
+        prohibited this task from being saved:
+      %ul
+        - @todo.errors.full_messages.each do |message|
+          %li= message
+  .form-group
+    = f.label :content
+    %br/
+    = f.text_area :content, class: "long"
+  .form-group
+    = f.label :section
+    %br/
+    = f.text_field :section, class: "long"
+  %div
+    = f.submit "Submit", class: "btn btn-primary"
