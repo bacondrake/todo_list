@@ -18,12 +18,3 @@
 .long {
   width: 450px;
 }
-
-/* makes the content field maximum size 300px so other fields aren't squashed */
-#content_length {
-  max-width: 300px;
-}
-
-#section_length {
-  max-width: 150px;
-}
