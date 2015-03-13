@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
-  resources :todos
-  
+  resources :todos, except: :show
+
   post 'todos/:id' => 'todos#completed'
-  delete 'todos' => 'todos#clear_all' 
-  
+  delete 'todos' => 'todos#clear_all'
+
   devise_for :users
   root 'pages#home'
-  get 'about' => 'pages#about'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
