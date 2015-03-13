@@ -11,18 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140713072616) do
+ActiveRecord::Schema.define(version: 20140624122411) do
 
   create_table "todos", force: true do |t|
     t.string   "content"
     t.string   "section"
-    t.string   "date_created"
-    t.string   "date_completed"
+    t.boolean  "completed"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "completed"
     t.integer  "user_id"
-    t.integer  "position"
   end
 
   add_index "todos", ["user_id"], name: "index_todos_on_user_id"
@@ -38,12 +35,12 @@ ActiveRecord::Schema.define(version: 20140713072616) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "time_zone"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
