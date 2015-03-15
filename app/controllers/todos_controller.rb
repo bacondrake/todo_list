@@ -53,12 +53,14 @@ class TodosController < ApplicationController
   def completed
     if !@todo.completed
       @todo.completed = true
+      session[:return_to] ||= request.referer # if todo is not on page 1, updating will keep it on the same page (rather than redirecting back to page 1)
     elsif @todo.completed = true
       @todo.completed = false
+      session[:return_to] ||= request.referer # if todo is not on page 1, updating will keep it on the same page (rather than redirecting back to page 1)
     end
 
     if @todo.save
-      redirect_to todos_url
+      redirect_to session.delete(:return_to)
     else
       render :new
     end
