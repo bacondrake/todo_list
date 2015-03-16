@@ -1,41 +1,46 @@
 %h1 All the tasks
 
-%table.table-condensed.table-hover
-  %thead
-    %tr.link_text
-      %th
-      %th
-      %th
-        = sortable "To-do"
-        %span.caret
-      %th
-        = sortable "Category"
-        %span.caret
-  %tbody
-    - @todos.each do |todo|
-      - if todo.completed
-        %tr.completed
-          %td
-            %i= link_to '', todo, method: :completed, class: "fa fa-times"
-          %td
-            %i= link_to '', todo, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash"
-          - if todo.user == current_user
-            %td= todo.content
-            %td= todo.section
-
-      - else
-        %tr
-          - if todo.user == current_user
+- if current_user.todos.count == 0
+  You do not have any todos, add one now!
+  %br
+- else
+  %table.table-condensed.table-hover
+    %thead
+      %tr.link_text
+        %th
+        %th
+        %th
+          = sortable "To-do"
+          %span.caret
+        %th
+          = sortable "Category"
+          %span.caret
+    %tbody
+      - @todos.each do |todo|
+        - if todo.completed
+          %tr.completed
             %td
-              %i= link_to '', todo, method: :completed, class: "fa fa-check"
+              %i= link_to '', todo, method: :completed, class: "fa fa-times"
             %td
               %i= link_to '', todo, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash"
-            %td= link_to "#{todo.content}", edit_todo_path(todo)
-            %td= todo.section
+            - if todo.user == current_user
+              %td{style:"max-width: 750px"}= markdown(todo.content).html_safe
+              %td= markdown(todo.section).html_safe
+
+        - else
+          %tr
+            - if todo.user == current_user
+              %td
+                %i= link_to '', todo, method: :completed, class: "fa fa-check"
+              %td
+                %i= link_to '', todo, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash"
+              %td{style:'max-width:750px'}= link_to markdown(todo.content).html_safe, edit_todo_path(todo)
+              %td= markdown(todo.section).html_safe
 
 %br
 .center
   = will_paginate @todos, renderer: BootstrapPagination::Rails
 / footer
 = link_to 'New task', new_todo_path, class: "btn btn-primary"
-= link_to 'Clear all completed', @todo, method: :delete, data: { confirm: 'This will clear all completed tasks, are you sure?'}, class: "btn btn-default"
+- if current_user.todos.count != 0
+  = link_to 'Clear all completed', @todo, method: :delete, data: { confirm: 'This will clear all completed tasks, are you sure?'}, class: "btn btn-default"
