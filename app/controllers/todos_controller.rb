@@ -68,8 +68,7 @@ class TodosController < ApplicationController
 
   # Clear all completed
   def clear_all
-    @clear = Todo.all
-    @clear.each do |todo|
+    current_user.todos.each do |todo|
       if todo.completed
          todo.delete
       end
