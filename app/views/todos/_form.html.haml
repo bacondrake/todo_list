@@ -1,17 +1,15 @@
-= form_for(@todo) do |f|
+= simple_form_for(@todo) do |f|
   - if @todo.errors.any?
     #error_explanation
       %ul.list-unstyled.alert.alert-danger.long
         - @todo.errors.full_messages.each do |message|
           %li= message
   .form-group
-    = f.label :content
-    %br
-    = f.text_area :content, class: "long"
+    = f.input :content, as: :pagedown, input_html: { preview: true }
   .form-group
-    = f.label :section
-    %br
-    = f.text_field :section, class: "long"
+    = f.input :section, as: :pagedown, input_html: { preview: true }
   %span
-    = f.submit "Submit", class: "btn btn-primary"
+    = f.button :submit, class: "btn btn-primary"
     = link_to 'Back', todos_path, class: "btn btn-default"
+  %br
+  %br
