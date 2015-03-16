@@ -9,15 +9,20 @@ gem 'html2haml'
 gem 'i18n'
 gem 'jbuilder'
 gem 'jquery-rails'
+gem 'mailcatcher'
+gem 'pagedown-bootstrap-rails'
 gem 'rails'
+gem 'redcarpet'
 gem 'sass-rails'
 gem 'sdoc',          group: :doc
+gem 'simple_form'
 gem 'turbolinks'
 gem 'uglifier'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'rspec-rails', '~> 3.0'
   gem 'shoulda-matchers', require: false
