@@ -13,4 +13,5 @@ Easy to start locally:
 
 * Clone the repository
 * ```bundle install```
+* ```bundle exec rake db:migrate```
 * ```rails server```
