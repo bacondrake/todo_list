@@ -42,5 +42,11 @@
   = will_paginate @todos, renderer: BootstrapPagination::Rails
 / footer
 = link_to 'New task', new_todo_path, class: "btn btn-primary"
-- if current_user.todos.count != 0
-  = link_to 'Clear all completed', @todo, method: :delete, data: { confirm: 'This will clear all completed tasks, are you sure?'}, class: "btn btn-default"
+// If the current user has more than 0 todos,
+// check to see if any of the todos are completed.
+// If not, don't display the 'clear complete' button.
+- if current_user.todos.count > 0
+  - completed_todos_count = Array.new
+  - current_user.todos.each { |todo| todo.completed ? completed_todos_count << todo : nil }
+  - if completed_todos_count.length > 0
+    = link_to 'Clear complete', @todo, method: :delete, data: { confirm: 'This will clear all completed tasks, are you sure?'}, class: "btn btn-default"
