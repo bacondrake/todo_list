@@ -4,10 +4,13 @@
       %ul.list-unstyled.alert.alert-danger.long
         - @todo.errors.full_messages.each do |message|
           %li= message
-  .form-group
-    = f.input :content, label: "To-do", as: :pagedown, input_html: { preview: true }
-  .form-group
-    = f.input :section, label: "Category", as: :pagedown, input_html: { preview: true }
+  .row
+    .col-sm-6
+      .form-group
+        = f.input :content, label: "To-do", as: :pagedown, input_html: { preview: true }
+    .col-sm-6
+      .form-group
+        = f.input :section, label: "Category", as: :pagedown, input_html: { preview: true }
   %span
     = f.button :submit, class: "btn btn-primary"
     = link_to 'Back', todos_path, class: "btn btn-default"

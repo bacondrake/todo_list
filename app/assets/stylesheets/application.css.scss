@@ -11,3 +11,11 @@ h1 {
   padding-bottom: $line-height-computed;
   margin-bottom: $line-height-computed * 1.5;
 }
+
+.wmd-input {
+  height: 200px;
+}
+
+[id^="wmd-help-button"] {
+  visibility: hidden;
+}

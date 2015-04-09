@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require features
 //= require pagedown_bootstrap
 //= require pagedown_init
 //= require_tree .
