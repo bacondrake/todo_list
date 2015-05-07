@@ -6,7 +6,7 @@ class TodosController < ApplicationController
 
   def index
     # sets current user todos with pagination and alphabetical ordering by content
-    @todos = current_user.todos.paginate(page: params[:page], per_page: 10).order(sort_column + " " + sort_direction)
+    @todos = current_user.todos.paginate(page: params[:page], per_page: 10).order(:id)
     respond_to do |format|
       format.html
       format.csv { send_data @todos.to_csv }
@@ -14,10 +14,6 @@ class TodosController < ApplicationController
   end
 
   def show
-    # Only shows todos if they belong to the current user.
-    if @todo.user == !current_user
-      redirect_to todos_url, notice: 'How did you get here? That task does not belong to you.'
-    end
   end
 
   def new
@@ -88,13 +84,5 @@ class TodosController < ApplicationController
 
     def todo_params
       params.require(:todo).permit(:content, :section, :completed)
-    end
-
-    def sort_column
-      Todo.column_names.include?(params[:sort]) ? params[:sort] : "LOWER(content)"
-    end
-
-    def sort_direction
-      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
 end
