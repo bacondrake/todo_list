@@ -84,4 +84,10 @@ Rails.application.configure do
   # set to actual host (e.g. todo_list.herokuapp.com)
   # Need to run heroku run rake db:migrate or there may be unexplained errors
   config.action_mailer.default_url_options = { host: 'allmytasks.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => "127.0.0.1",
+    :port    => 25, # supposing you have a SMTP server on localhost:25
+    :domain  => 'allmytasks.herokuapp.com'
+  }
 end
