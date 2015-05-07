@@ -10,15 +10,13 @@
         %th
         %th
         %th
-          = sortable "To-do"
-          %span.caret
+          To-do
         %th
-          = sortable "Category"
-          %span.caret
+          Category
     %tbody
       - @todos.each do |todo|
         - if todo.completed
-          %tr.completed
+          %tr#complete
             %td
               %i= link_to '', todo, method: :completed, class: "fa fa-times"
             %td

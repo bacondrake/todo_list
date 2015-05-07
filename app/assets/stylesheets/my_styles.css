@@ -4,7 +4,7 @@
 }
 
 /* styles for completed todos */
-.completed {
+#complete {
   color: #B6B6B6; /* light grey */
   text-decoration: line-through;
 }
@@ -12,9 +12,4 @@
 /* makes the sort links on the index page black, but all others standard blue */
 .link_text a {
   color:#000;
-}
-
-/* makes the text area/fields in _form (new/edit) 450px in length (they are otherwise too small) */
-.long {
-  width: 450px;
 }
