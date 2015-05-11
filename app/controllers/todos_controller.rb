@@ -6,7 +6,7 @@ class TodosController < ApplicationController
 
   def index
     # sets current user todos with pagination and alphabetical ordering by content
-    @todos = current_user.todos.paginate(page: params[:page], per_page: 10).order(:id)
+    @todos = current_user.todos.paginate(page: params[:page], per_page: 30).order(:id)
     respond_to do |format|
       format.html
       format.csv { send_data @todos.to_csv }
