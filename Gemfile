@@ -23,7 +23,6 @@ gem 'will_paginate-bootstrap'
 group :development, :test do
   gem 'dotenv-rails'
   gem 'factory_girl_rails'
-  # gem 'mailcatcher'
   gem 'nyan-cat-formatter'
   gem 'rspec-rails', '~> 3.0'
   gem 'shoulda-matchers', require: false
