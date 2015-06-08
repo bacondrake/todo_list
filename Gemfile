@@ -21,7 +21,7 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 
 group :development, :test do
-  gem 'dotenv-rails'
+  # gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'nyan-cat-formatter'
   gem 'rspec-rails', '~> 3.0'
