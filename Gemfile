@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-ruby '2.1.3'
+ruby '2.2.3'
 
 gem 'bootstrap-sass'
 gem 'coffee-rails'
@@ -21,10 +21,10 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 
 group :development, :test do
-  # gem 'dotenv-rails'
+  gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'nyan-cat-formatter'
-  gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-rails'
   gem 'shoulda-matchers', require: false
   gem 'simplecov', require: false
   gem 'sqlite3'

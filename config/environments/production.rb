@@ -81,13 +81,18 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # set to actual host (e.g. todo_list.herokuapp.com)
-  # Need to run heroku run rake db:migrate or there may be unexplained errors
-  config.action_mailer.default_url_options = { host: 'allmytasks.herokuapp.com' }
+  # Configure production email with sendgrid
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :address => "127.0.0.1",
-    :port    => 25, # supposing you have a SMTP server on localhost:25
-    :domain  => 'allmytasks.herokuapp.com'
+  host = "allmytasks.herokuapp.com"
+  config.action_mailer.default_url_options = { host: host }
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.sendgrid.net',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => ENV['SENDGRID_USERNAME'],
+    :password       => ENV['SENDGRID_PASSWORD'],
+    :domain         => 'heroku.com',
+    :enable_starttls_auto => true
   }
 end

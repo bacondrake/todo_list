@@ -9,4 +9,10 @@ RSpec.describe Todo, type: :model do
   it "validates the presence of content" do
     expect(subject).to validate_presence_of(:content)
   end
+
+  500.times do
+    it "does the nyan cat thing" do
+      expect(true).to be(true)
+    end
+  end
 end
