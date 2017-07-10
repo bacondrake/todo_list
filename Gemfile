@@ -24,9 +24,9 @@ gem 'will_paginate-bootstrap'
 
 group :development, :test do
   # gem 'dotenv-rails'
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', require: false
   gem 'nyan-cat-formatter'
-  gem 'rspec'
+  gem 'rspec-rails'
   gem 'shoulda-matchers', require: false
   gem 'simplecov', require: false
   gem 'sqlite3'

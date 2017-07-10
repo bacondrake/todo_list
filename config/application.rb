@@ -28,5 +28,10 @@ module TodoList
 
     # Required for Heroku
     config.assets.initialize_on_precompile = false
+
+    # rails g factory_girl:model ModelName to create factories for currently existing models
+    config.generators do |g|
+      g.fixture_replacement :factory_girl, dir: "spec/factories"
+    end
   end
 end
