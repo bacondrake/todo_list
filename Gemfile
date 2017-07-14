@@ -24,6 +24,8 @@ gem 'will_paginate-bootstrap'
 
 group :development, :test do
   # gem 'dotenv-rails'
+  gem 'capybara'
+  gem 'database_cleaner' # Clear the database when tests are run to remove misleading errors
   gem 'factory_girl_rails', require: false
   gem 'nyan-cat-formatter'
   gem 'rspec-rails'

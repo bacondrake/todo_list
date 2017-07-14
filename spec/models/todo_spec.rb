@@ -15,4 +15,12 @@ RSpec.describe Todo, type: :model do
   it "can be marked complete" do
     expect(complete_todo.completed).to be_truthy
   end
+
+  it "does not save a new todo without content" do
+    # Try to save contentless todo
+  end
+
+  it "does not save a new todo without a section" do
+    # Try to save sectionless todo
+  end
 end
