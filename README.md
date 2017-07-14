@@ -1,4 +1,4 @@
-##A Ruby on Rails-based todo list
+## A Ruby on Rails-based todo list
 
 Also known as 'My First Rails Project'
 
@@ -15,3 +15,6 @@ Easy to start locally:
 * ```bundle install```
 * ```bundle exec rake db:migrate```
 * ```rails server```
+
+Run test suite with:
+```bundle exec rspec spec```
