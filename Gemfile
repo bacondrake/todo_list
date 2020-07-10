@@ -1,33 +1,25 @@
 source 'http://rubygems.org'
-ruby '2.2.3'
 
-gem 'bootstrap-sass'
-gem 'coffee-rails'
-gem 'devise'
-gem 'dotenv-rails', :require => 'dotenv/rails-now'
+gem 'devise', '~> 4.7.2'
+gem 'dotenv-rails'#, '~> 2.7.5'
 gem 'figaro'
 gem 'haml-rails'
-gem 'html2haml'
 gem 'i18n'
 gem 'jbuilder'
-gem 'jquery-rails'
 gem 'pagedown-bootstrap-rails'
-gem 'rails'
+gem 'rails', '~> 6.0.2'
 gem 'redcarpet'
-gem 'sass-rails'
+gem "sassc-rails", "~> 2.1"
 gem 'sdoc',          group: :doc
-gem 'simple_form'
+gem 'simple_form', '~> 5.0.2'
 gem 'turbolinks'
 gem 'uglifier'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 
 group :development, :test do
-  # gem 'dotenv-rails'
-  gem 'capybara'
   gem 'database_cleaner' # Clear the database when tests are run to remove misleading errors
-  gem 'factory_girl_rails', require: false
-  gem 'nyan-cat-formatter'
+  gem "factory_bot_rails", "~> 6.1"
   gem 'rspec-rails'
   gem 'shoulda-matchers', require: false
   gem 'simplecov', require: false
