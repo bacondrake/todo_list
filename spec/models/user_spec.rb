@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryBot.build(:user) }
 
   it "should have an email address" do
     expect(user.email).to_not be_nil

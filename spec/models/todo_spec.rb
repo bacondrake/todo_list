@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Todo, type: :model do
-  let(:todo) { FactoryGirl.create(:todo) }
-  let(:complete_todo) { FactoryGirl.create(:todo_complete) }
+  let(:todo) { FactoryBot.build(:todo) }
+  let(:complete_todo) { FactoryBot.build(:todo_complete) }
 
   it "has content" do
     expect(todo.content).to_not be_nil

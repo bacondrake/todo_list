@@ -1,10 +1,10 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :todo do
-    content "This is a todo"
-    section "This is a section"
+    content { "This is a todo" }
+    section { "This is a section" }
 
     factory :todo_complete do
-      completed true
+      completed { true }
     end
   end
 end

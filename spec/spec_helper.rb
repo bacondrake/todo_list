@@ -1,11 +1,8 @@
-require 'factory_girl_rails'
 # require 'capybara/rails'
 # require 'capybara/rspec'
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
-  # Add in FactoryGirl methods
-  config.include FactoryGirl::Syntax::Methods
   # https://relishapp.com/rspec/rspec-rails/docs/upgrade#file-type-inference-disabled
   # Automatically infer spec type from a file location. Allows Capybara specs to live in features directory
   # RSpec.configure do |config|
